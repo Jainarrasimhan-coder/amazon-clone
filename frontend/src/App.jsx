@@ -3,7 +3,7 @@ import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import HomeScreen from './Screens/HomeScreen';
 import ProductScreen from './Screens/ProductScreen';
 import CartScreen from "./Screens/cartScreen"
-import { useSelector,useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import SigninScreen from './Screens/SigninScreen';
 import { signout } from './actions/userActions';
 import RegisterScreen from './Screens/RegisterScreen';
@@ -34,15 +34,15 @@ function App() {
   };
   return (
     <BrowserRouter>
-        <div className="grid-container">
-      <header className="row">
-        <div>
-          <Link className="brand" to="/">
-            amazona
-          </Link>
-        </div>
-        <div>
-        <Link to="/cart">
+      <div className="grid-container">
+        <header className="row">
+          <div>
+            <Link className="brand" to="/">
+              amazona
+            </Link>
+          </div>
+          <div>
+            <Link to="/cart">
               Cart
               {cartItems.length > 0 && (
                 <span className="badge">{cartItems.length}</span>
@@ -54,10 +54,10 @@ function App() {
                   {userInfo.name} <i className="fa fa-caret-down"></i>{' '}
                 </Link>
                 <ul className="dropdown-content">
-                <li>
+                  <li>
                     <Link to="/profile">User Profile</Link>
                   </li>
-                {/* <li>
+                  {/* <li>
                     <Link to="/orderhistory">Order History</Link>
                   </li> */}
                   <li>
@@ -70,7 +70,7 @@ function App() {
             ) : (
               <Link to="/signin">Sign In</Link>
             )}
-                   {userInfo && userInfo.isAdmin && (
+            {userInfo && userInfo.isAdmin && (
               <div className="dropdown">
                 <Link to="#admin">
                   Admin <i className="fa fa-caret-down"></i>
@@ -91,26 +91,26 @@ function App() {
                 </ul>
               </div>
             )}
-        </div>
-      </header>
-      <main>
-        <Routes>
-        <Route path="/cart" element={<CartScreen/>}></Route>
-        <Route path="/cart/:id" element={<CartScreen/>}></Route>
-      <Route path="/product/:id" element={<ProductScreen/>}></Route>
-      <Route
+          </div>
+        </header>
+        <main>
+          <Routes>
+            <Route path="/cart" element={<CartScreen />}></Route>
+            <Route path="/cart/:id" element={<CartScreen />}></Route>
+            <Route path="/product/:id" element={<ProductScreen />}></Route>
+            <Route
               path="/product/:id/edit"
-              element={<ProductEditScreen/>}
+              element={<ProductEditScreen />}
               exact
             ></Route>
-      <Route path="/signin" element={<SigninScreen/>}></Route>
-      <Route path="/register" element={<RegisterScreen/>}></Route>
-      <Route path="/shipping" element={<ShippingAddressScreen/>}></Route>
-      <Route path="/placeorder" element={<PlaceOrderScreen/>}></Route>
-      <Route path="/payment" element={<PaymentMethodScreen/>}></Route>
-      <Route path="/order/:id" element={<OrderScreen/>}></Route>
-      <Route path="/orderhistory" element={<OrderHistoryScreen/>}></Route>
-      <Route
+            <Route path="/signin" element={<SigninScreen />}></Route>
+            <Route path="/register" element={<RegisterScreen />}></Route>
+            <Route path="/shipping" element={<ShippingAddressScreen />}></Route>
+            <Route path="/placeorder" element={<PlaceOrderScreen />}></Route>
+            <Route path="/payment" element={<PaymentMethodScreen />}></Route>
+            <Route path="/order/:id" element={<OrderScreen />}></Route>
+            <Route path="/orderhistory" element={<OrderHistoryScreen />}></Route>
+            <Route
               path="/profile"
               element={
                 <PrivateRoute>
@@ -119,7 +119,7 @@ function App() {
               }
             />
 
-<Route
+            <Route
               path="/productlist"
               element={
                 <AdminRoute>
@@ -127,7 +127,7 @@ function App() {
                 </AdminRoute>
               }
             />
-             <Route
+            <Route
               path="/orderlist"
               element={
                 <AdminRoute>
@@ -135,21 +135,21 @@ function App() {
                 </AdminRoute>
               }
             />
-      <Route path="/" element={<HomeScreen/>}exact></Route>
+            <Route path="/" element={<HomeScreen />} exact></Route>
 
 
 
-      </Routes>
-        <div>
-          {/* <div className="row center">
+          </Routes>
+          <div>
+            {/* <div className="row center">
             {data.products.map((product) => (
            <Product key={product._id} product={product}></Product>
             ))}
           </div> */}
-        </div>
-      </main>
-      <footer className="row center">All right reserved</footer>
-    </div>
+          </div>
+        </main>
+        <footer className="row center">All right reserved</footer>
+      </div>
     </BrowserRouter>
 
   );
