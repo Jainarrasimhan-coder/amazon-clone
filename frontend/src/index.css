@@ -193,6 +193,13 @@ img.medium {
     width: 100%;
 }
 
+img.medium1 {
+    max-width: 40rem;
+    width: 100%;
+    /* align-items: center; */
+    /* margin-left: 500px; */
+}
+
 img.large {
     width: 100%;
 }
@@ -341,8 +348,4 @@ img.large {
 
 .table button {
     margin: 0 0.2rem;
-}
-
-.row.amazon {
-    justify-content: center;
 }

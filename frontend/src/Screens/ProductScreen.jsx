@@ -1,35 +1,35 @@
-import { Link,useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Rating from '../components/Rating';
 import data from '../data';
 import { useParams } from 'react-router';
 import { detailsProduct } from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import React, { useEffect,useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import Rating from '../components/Rating';
 
 export default function ProductScreen(props) {
-    const dispatch = useDispatch();
-    const navigate=useNavigate();
-    const params = useParams();
-    const productId = params.id;
-    const [qty, setQty] = useState(1);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const params = useParams();
+  const productId = params.id;
+  const [qty, setQty] = useState(1);
 
 
-    const productDetails = useSelector((state) => state.productDetails);
-    const { loading, error, product } = productDetails;
-  
-    useEffect(() => {
-        // dispatch(detailsProduct(props.match.params.id));
-      dispatch(detailsProduct(productId));
-    }, [dispatch, productId]);
-    const addToCartHandler = () => {
-        navigate(`/cart/${productId}?qty=${qty}`);
-      };
+  const productDetails = useSelector((state) => state.productDetails);
+  const { loading, error, product } = productDetails;
+
+  useEffect(() => {
+    // dispatch(detailsProduct(props.match.params.id));
+    dispatch(detailsProduct(productId));
+  }, [dispatch, productId]);
+  const addToCartHandler = () => {
+    navigate(`/cart/${productId}?qty=${qty}`);
+  };
   return (
     <div>
-           {loading ? (
+      {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
@@ -39,7 +39,7 @@ export default function ProductScreen(props) {
           <div className="row top">
             <div className="col-2">
               <img
-                className="large"
+                className="medium1"
                 src={product.image}
                 alt={product.name}
               ></img>
@@ -86,7 +86,7 @@ export default function ProductScreen(props) {
                   {/* <li>
                     <button className="primary block">Add to Cart</button>
                   </li> */}
-                    {product.countInStock > 0 && (
+                  {product.countInStock > 0 && (
                     <>
                       <li>
                         <div className="row">

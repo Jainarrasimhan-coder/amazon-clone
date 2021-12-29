@@ -19,7 +19,10 @@ export default function HomeScreen() {
   }, [dispatch]);
   return (
     <div>
+      <div className='header row center'>
+        <img className='large' src="https://images.freekaamaal.com/store_desc_images/1511854212.jpg" alt="" />
 
+      </div>
       {loading ? (
         <LoadingBox>
 
@@ -38,6 +41,10 @@ export default function HomeScreen() {
         </div>
 
       )}
+      <div className='header row center'>
+        <img className='large' src="https://m.media-amazon.com/images/S/aplus-seller-content-images-us-east-1/A21TJRUUN4KGV/A3TA2BFDXYURBV/d1bdcd07-2ddb-4caf-82ab-614f4f0d1165._CR0,15,970,300_PT0_SX970__.jpg" alt="" />
+
+      </div>
     </div>
   );
 }   
